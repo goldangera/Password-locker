@@ -23,4 +23,10 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(self.new_profile.sur_name, 'nkirote')
         self.assertEqual(self.new_profile.password, 'golda6888')
     
-    
+    def test_save_profile(self):
+        '''
+        Test to check if the new profiles info is saved into the profiles list
+        '''
+        self.new_profile.save_profile()
+        self.assertEqual(len(Profile.profiles_list), 1)
+
