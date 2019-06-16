@@ -14,3 +14,10 @@ def save_profile(profile):
     Function to save a new profile account
     '''
     Profile.save_profile(profile)
+
+def verify_profile(first_name, password):
+    '''
+    Function that verifies the existance of the profile before creating credentials
+    '''
+    checking_profile = Credential.check_profile(first_name, password)
+    return checking_profile
