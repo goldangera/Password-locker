@@ -34,6 +34,10 @@ class Profile:
     '''
     Class to create  account credentials, generate passwords and save their information
     '''
+     # Class Variables
+    credentials_list = []
+    profile_credentials_list = []
+    @classmethod
 
 
 
