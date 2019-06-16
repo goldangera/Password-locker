@@ -14,3 +14,13 @@ class TestProfile(unittest.TestCase):
         Function to create a profile account before each test
         '''
         self.new_profile = Profile('golda', 'nkirote', 'golda6888')
+
+    def test__init__(self):
+        '''
+        Test to if check the initialization/creation of profile instances is properly done
+        '''
+        self.assertEqual(self.new_profile.first_name, 'golda')
+        self.assertEqual(self.new_profile.sur_name, 'nkirote')
+        self.assertEqual(self.new_profile.password, 'golda6888')
+    
+    
