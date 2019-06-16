@@ -38,7 +38,7 @@ class TestCredentials(unittest.TestCase):
     '''
      def test_check_profile(self):
         '''
-        Function to test whether the login in function check_profile works as expected
+        Function to test whether the login function check_profile works as expected
         '''
         self.new_profile = Profile('golda', 'nkirote', 'golda6888')
         self.new_profile.save_profile()
@@ -52,3 +52,10 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(current_profile, Credential.check_profile(
             profile2.password, profile2.first_name))
+
+     def setUp(self):
+        '''
+        Function to create an account's credentials before each test
+        '''
+        self.new_credential = Credential(
+            'golda', 'Instagram', 'test', 'golda6888') 
