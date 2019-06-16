@@ -36,3 +36,19 @@ class TestCredentials(unittest.TestCase):
     Args:
         unittest.TestCase: helps in creating test cases
     '''
+     def test_check_profile(self):
+        '''
+        Function to test whether the login in function check_profile works as expected
+        '''
+        self.new_profile = Profile('golda', 'nkirote', 'golda6888')
+        self.new_profile.save_profile()
+        profile2 = Profile('golda', 'nkirote', 'golda6888')
+        profile2.save_profile()
+
+        for profile in Profile.profiles_list:
+            if profile.first_name == profile2.first_name and profile.password == profile2.password:
+                current_profile = profile.first_name
+        return current_profile
+
+        self.assertEqual(current_profile, Credential.check_profile(
+            profile2.password, profile2.first_name))
