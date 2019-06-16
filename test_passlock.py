@@ -75,4 +75,9 @@ class TestCredentials(unittest.TestCase):
         twitter = Credential('golda', 'Twitter', 'works', 'golda6888')
         twitter.save_credentials()
         self.assertEqual(len(Credential.credentials_list), 2)
-    
+    def tearDown(self):
+        '''
+        Function to clear the credentials list after every test
+        '''
+        Credential.credentials_list = []
+        Profile.profiles_list = []
