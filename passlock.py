@@ -28,6 +28,12 @@ class Profile:
         Function to save a newly created profile instance
         '''
         Profile.profiles_list.append(self)
+    
+
+    class Credential:
+    '''
+    Class to create  account credentials, generate passwords and save their information
+    '''
 
 
 
