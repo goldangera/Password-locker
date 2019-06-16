@@ -36,7 +36,7 @@ class TestCredentials(unittest.TestCase):
     Args:
         unittest.TestCase: helps in creating test cases
     '''
-     def test_check_profile(self):
+    def test_check_profile(self):
         '''
         Function to test whether the login function check_profile works as expected
         '''
@@ -53,9 +53,26 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(current_profile, Credential.check_profile(
             profile2.password, profile2.first_name))
 
-     def setUp(self):
+    def setUp(self):
         '''
         Function to create an account's credentials before each test
         '''
         self.new_credential = Credential(
             'golda', 'Instagram', 'test', 'golda6888') 
+    def test__init__(self):
+        '''
+        Test to if check the initialization/creation of credential instances is properly done
+        '''
+        self.assertEqual(self.new_credential.profile_name, 'golda')
+        self.assertEqual(self.new_credential.site_name, 'Instagram')
+        self.assertEqual(self.new_credential.account_name, 'test')
+        self.assertEqual(self.new_credential.password, 'golda6888')
+    def test_save_credentials(self):
+        '''
+        Test to check if the new credential info is saved into the credentials list
+        '''
+        self.new_credential.save_credentials()
+        twitter = Credential('golda', 'Twitter', 'works', 'golda6888')
+        twitter.save_credentials()
+        self.assertEqual(len(Credential.credentials_list), 2)
+    
