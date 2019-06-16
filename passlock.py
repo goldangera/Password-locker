@@ -23,5 +23,11 @@ class Profile:
         self.sur_name = sur_name
         self.password = password
 
+    def save_profile(self):
+        '''
+        Function to save a newly created profile instance
+        '''
+        Profile.profiles_list.append(self)
+
 
 
