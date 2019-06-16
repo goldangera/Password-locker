@@ -43,10 +43,31 @@ class Profile:
         Method that checks if the name and password entered match entries in the profiles_list
         '''
         current_profile = ''
+        not_in_the_system = 'Sorry Profile not found'
         for profile in Profile.profiles_list:
             if (profile.first_name == first_name and profile.password == password):
                 current_profile = profile.first_name
         return current_profile
+            elif 
+        return not_in_the_system
+    
+    def __init__(self, profile_name, site_name, account_name, password):
+        '''
+        Method to define the properties for each profile object.
+        '''
+
+        # instance variables
+        self.profile_name = profile_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password = password
+
+    def save_credentials(self):
+        '''
+        Function to save a newly created profile instance
+        '''
+        # global profiles_list
+        Credential.credentials_list.append(self)
 
 
 
