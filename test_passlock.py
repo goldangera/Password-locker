@@ -75,9 +75,31 @@ class TestCredentials(unittest.TestCase):
         twitter = Credential('golda', 'Twitter', 'works', 'golda6888')
         twitter.save_credentials()
         self.assertEqual(len(Credential.credentials_list), 2)
+
     def tearDown(self):
         '''
         Function to clear the credentials list after every test
         '''
         Credential.credentials_list = []
         Profile.profiles_list = []
+
+    def test_display_credentials(self):
+        '''
+        Test to check if the display_credentials method, displays the correct credentials.
+        '''
+        self.new_credential.save_credentials()
+        twitter = Credential('golda', 'Twitter', 'works', 'golda6888')
+        twitter.save_credentials()
+        gmail = Credential('golda', 'Gmail', 'send', 'golda6888')
+        gmail.save_credentials()
+        self.assertEqual(
+            len(Credential.display_credentials(twitter.profile_name)), 3)
+    def test_find_by_site_name(self):
+        '''
+        Test to check if the find_by_site_name method returns correct credential
+        '''
+        self.new_credential.save_credentials()
+        twitter = Credential('golda', 'Twitter', 'works', 'golda6888')
+        twitter.save_credentials()
+        credential_exists = Credential.find_by_site_name('Twitter')
+        self.assertEqual(credential_exists, twitter)
