@@ -21,3 +21,10 @@ def verify_profile(first_name, password):
     '''
     checking_profile = Credential.check_profile(first_name, password)
     return checking_profile
+
+def generate_password():
+    '''
+    Function to generate a password automatically
+    '''
+    gen_pass = Credential.generate_password()
+    return gen_pass
