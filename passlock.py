@@ -13,3 +13,15 @@ class Profile:
     # global profiles_list
     profiles_list = []
 
+    def __init__(self, first_name, sur_name, password):
+        '''
+        Method to define each profile object properties.
+        '''
+
+        # instance variables
+        self.first_name = first_name
+        self.sur_name = sur_name
+        self.password = password
+
+
+
