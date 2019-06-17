@@ -1,5 +1,6 @@
-from passlock import Profile, Credentials
+#!/usr/bin/env python3.6
 import random
+from passlock import Profile, Credential
 
 def create_profile(fname, lname, password):
     '''
@@ -44,17 +45,20 @@ def save_credential(credential):
     '''
     Credential.save_credentials(credential)
 
+
 def display_credentials(profile_name):
     '''
     Function to display credentials saved by a profile
     '''
     return Credential.display_credentials(profile_name)
 
+
 def copy_credential(site_name):
     '''
     Function to copy a credentials details to the clipboard
     '''
     return Credential.copy_credential(site_name)
+
 
 def main():
     print(' ')

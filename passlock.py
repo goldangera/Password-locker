@@ -30,11 +30,11 @@ class Profile:
         Profile.profiles_list.append(self)
     
 
-    class Credential:
+class Credential:
     '''
     Class to create  account credentials, generate passwords and save their information
     '''
-     # Class Variables
+    # Class Variables
     credentials_list = []
     profile_credentials_list = []
     @classmethod
@@ -43,14 +43,11 @@ class Profile:
         Method that checks if the name and password entered match entries in the profiles_list
         '''
         current_profile = ''
-        not_in_the_system = 'Sorry Profile not found'
         for profile in Profile.profiles_list:
             if (profile.first_name == first_name and profile.password == password):
                 current_profile = profile.first_name
-        return current_profile
-            elif 
-        return not_in_the_system
-    
+                return current_profile
+        
     def __init__(self, profile_name, site_name, account_name, password):
         '''
         Method to define the properties for each profile object.
